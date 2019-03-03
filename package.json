@@ -1,0 +1,34 @@
+{
+  "name": "SIH2K19",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Desmond00/SIH2K19.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Desmond00/SIH2K19/issues"
+  },
+  "homepage": "https://github.com/Desmond00/SIH2K19#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-hbs": "^2.0.2",
+    "hbs": "^4.0.3",
+    "socket.io": "^2.2.0",
+    "body-parser": "^1.18.3",
+    "express-session": "^1.15.6",
+    "mongodb": "^3.1.13",
+    "mongoose": "^5.4.5",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1"
+  }
+}

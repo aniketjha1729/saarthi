@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      font-size: 1.2em;
+      line-height: 1.5em;
+      margin: 0;
+      background-color: #282828;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+</head>
+
+<body>
+  <center>
+    <textarea cols="40" rows="5" id="broadcastMessage" style="background-color:cadetblue;margin-top: 10%;"></textarea>
+    <button id="broadcastButton" type="button" class="btn btn-success">Broadcast</button>
+    <div id="output"></div>
+  </center>
+  <script>
+    // Make connection
+    var socket = io.connect('https://saarthivideocall.herokuapp.com');
+
+    // Query DOM
+    var output = document.getElementById("output");
+    var broadcastMessage = document.getElementById('broadcastMessage'),
+      broadcastButton = document.getElementById('broadcastButton');
+
+    // Emit events
+    socket.on('broadcast', function (data) {
+      output.innerHTML += '<p><a href=' + data.broadcast_link + ': >clickme</a></strong></p>';
+    });
+
+    broadcastButton.addEventListener('click', function () {
+      socket.emit('broadcastMessage', {
+        message: broadcastMessage.value
+      });
+      broadcastMessage.value = "";
+    });
+
+  </script>
+</body>
+
+</html>
